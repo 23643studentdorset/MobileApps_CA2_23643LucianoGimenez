@@ -7,22 +7,27 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 
-class Adapter (private val movieList : ArrayList<Movie>):RecyclerView.Adapter<Adapter.MyViewHolder>() {
+class Adapter (private val movieList : ArrayList<Movie>) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType : Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
         return MyViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder : MyViewHolder, position: Int) {
         val currentItem = movieList[position]
         holder.image.setImageResource(currentItem.image)
         holder.name.text = currentItem.name
+        holder.certification.text = currentItem.certification
+        holder.starring.text = currentItem.starring
+        holder.runningTimeMins.text = currentItem.running_time_mins.toString()
+        holder.seatsRemaining.text = currentItem.seats_remaining.toString()
+
     }
 
-    override fun getItemCount(): Int {
+    override fun getItemCount() : Int {
         return movieList.size
 
     }
@@ -32,8 +37,8 @@ class Adapter (private val movieList : ArrayList<Movie>):RecyclerView.Adapter<Ad
         val image : ShapeableImageView = itemView.findViewById(R.id.image)
         val certification : TextView = itemView.findViewById(R.id.certification)
         val starring : TextView = itemView.findViewById(R.id.starring)
-        val running_time_mins : TextView = itemView.findViewById(R.id.running_time_mins)
-        val seats_remaining : TextView = itemView.findViewById(R.id.seats_remaining)
+        val runningTimeMins : TextView = itemView.findViewById(R.id.running_time_mins)
+        val seatsRemaining : TextView = itemView.findViewById(R.id.seats_remaining)
     }
 
 }
