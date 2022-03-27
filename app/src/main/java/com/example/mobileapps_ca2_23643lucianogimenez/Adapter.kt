@@ -20,7 +20,7 @@ class Adapter (private val movieList : ArrayList<Movie>) : RecyclerView.Adapter<
         val currentItem = movieList[position]
         holder.image.setImageResource(currentItem.image)
         holder.name.text = currentItem.name
-        holder.certification.text = currentItem.certification
+        holder.certification.setImageResource(currentItem.certification)
         holder.starring.text = currentItem.starring
         holder.runningTimeMins.text = currentItem.running_time_mins.toString()
         holder.seatsRemaining.text = currentItem.seats_remaining.toString()
@@ -35,7 +35,7 @@ class Adapter (private val movieList : ArrayList<Movie>) : RecyclerView.Adapter<
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val name : TextView = itemView.findViewById(R.id.name)
         val image : ShapeableImageView = itemView.findViewById(R.id.image)
-        val certification : TextView = itemView.findViewById(R.id.certification)
+        val certification : ShapeableImageView = itemView.findViewById(R.id.certification)
         val starring : TextView = itemView.findViewById(R.id.starring)
         val runningTimeMins : TextView = itemView.findViewById(R.id.running_time_mins)
         val seatsRemaining : TextView = itemView.findViewById(R.id.seats_remaining)

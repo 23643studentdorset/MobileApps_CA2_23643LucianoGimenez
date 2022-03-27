@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var newArraylist : ArrayList<Movie>
     lateinit var nameInfo : Array<String>
     lateinit var imageInfo : Array<Int>
-    lateinit var certificationInfo : Array<String>
+    lateinit var certificationInfo : Array<Int>
     lateinit var descriptionInfo : Array<String>
     lateinit var starringInfo : Array<String>
     lateinit var runningTimeMinsInfo : Array<Int>
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         nameInfo = arrayOf("The Batman", "Sonic 2", "The Secrets of Dumbledore", "Maze", "Uncharted")
         imageInfo = arrayOf(R.drawable.batman, R.drawable.sonic2, R.drawable.dumbledor, R.drawable.maze, R.drawable.uncharted)
-        certificationInfo = arrayOf("15A", "PG", "12A", "15A", "12A")
+        certificationInfo = arrayOf(R.drawable.a15, R.drawable.pg, R.drawable.a12, R.drawable.a15, R.drawable.a12)
         descriptionInfo = arrayOf(
             "From Warner Bros. Pictures comes \"The Batman,\" with director Matt Reeves (the \"Planet of the Apes\" films) at the helm and with Robert Pattinson (\"Tenet,\" \"The Lighthouse,\" \"Good Time\") starring as Gotham City's vigilante detective, Batman.",
             "After settling in Green Hills, Sonic is eager to prove he has what it takes to be a true hero. His test comes when Dr. Robotnik returns, this time with a new partner, Knuckles, in search for an emerald that has the power to destroy civilizations.",
