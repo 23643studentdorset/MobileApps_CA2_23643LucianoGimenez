@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">MobileApps_CA2_23643LucianoGimenez</string>
+    <string name="movie_name"></string>
+    <string name="image"></string>
+    <string name="certification"></string>
+    <string name="description"></string>
+    <string name="starring">Starring:</string>
+    <string name="starring_value"></string>
+    <string name="running_time_mins">Running time:</string>
+    <string name="running_time_mins_value"></string>
+    <string name="seats_remaining">Seats remaining</string>
+    <string name="seats_remaining_value"></string>
+
+
+
 </resources>
