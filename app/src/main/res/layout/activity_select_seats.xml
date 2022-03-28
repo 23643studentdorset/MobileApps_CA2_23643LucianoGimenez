@@ -104,7 +104,7 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
             android:layout_marginEnd="5dp"
             android:tint="#dbdbdb"
             android:src="@drawable/armchair"/>

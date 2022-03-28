@@ -2,12 +2,15 @@ package com.example.mobileapps_ca2_23643lucianogimenez
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.properties.Delegates
 
 
 class SelectSeatsActivity: AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_seats)
@@ -30,7 +33,6 @@ class SelectSeatsActivity: AppCompatActivity() {
         val runningTimeMinsId = bundle.getInt("running_time_mins")
         var seatsRemainingId = bundle.getInt("seats_remaining")
         var seatsSelectedId = bundle.getInt("seats_selected")
-        var positionId = bundle.getInt("position")
 
         name.text = nameId
         image.setImageResource(imageId)
@@ -46,6 +48,8 @@ class SelectSeatsActivity: AppCompatActivity() {
             if (seatsSelectedId < seatsRemainingId){
                 seatsSelectedId += 1
                 seatsSelected.text = seatsSelectedId.toString()
+                //seats = seatsSelectedId
+                //Log.i("lucho", "seats: $seats")
                 findViewById<ImageView>(R.id.minus).isEnabled = true
                 findViewById<ImageView>(R.id.minus).setColorFilter(resources.getColor(R.color.grey))
             }
@@ -57,9 +61,12 @@ class SelectSeatsActivity: AppCompatActivity() {
         findViewById<ImageView>(R.id.minus).setOnClickListener{
             if (seatsSelectedId > 0){
                 seatsSelectedId -= 1
+                //seats = seatsSelectedId
+                //Log.i("lucho", "seats: $seats")
                 seatsSelected.text = seatsSelectedId.toString()
                 findViewById<ImageView>(R.id.plus).isEnabled = true
                 findViewById<ImageView>(R.id.plus).setColorFilter(resources.getColor(R.color.grey))
+
             }
             if(seatsSelectedId == 0){
                 findViewById<ImageView>(R.id.minus).isEnabled = false
@@ -67,7 +74,13 @@ class SelectSeatsActivity: AppCompatActivity() {
             }
         }
 
-
-
     }
+    //override fun onDestroy() {
+      //  super.onDestroy()
+      //  Log.i("lucho", "seats: $seats")
+      //  val intent = Intent(this, MainActivity::class.java)
+      //  intent.putExtra("seatsSelectedId", seats)
+      //  Log.i("lucho", "onDestroy called")
+      //  finish()
+    //}
 }

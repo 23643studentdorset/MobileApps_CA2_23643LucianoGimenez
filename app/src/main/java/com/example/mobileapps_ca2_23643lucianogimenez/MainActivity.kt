@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.lang.reflect.Constructor
+import kotlin.properties.Delegates
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var runningTimeMinsInfo : Array<Int>
     lateinit var seatsRemainingInfo : Array<Int>
     lateinit var seatsSelectedInfo : Array<Int>
+    var position by Delegates.notNull<Int>()
+    //var seats by Delegates.notNull<Int>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             getString(R.string.starring4), getString(R.string.starring5))
 
         runningTimeMinsInfo = arrayOf(175, 122, 144, 92, 116)
-        seatsRemainingInfo = arrayOf(rand(0,16), rand(0,16), rand(0,16), rand(0,16), rand(0,16),)
+        seatsRemainingInfo = arrayOf(rand(0,15), rand(0,15), rand(0,15), rand(0,15), rand(0,15),)
 
 
         newRecyclerView = findViewById(R.id.recycler_view)
@@ -87,11 +91,18 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("running_time_mins", runningTimeMinsInfo[position])
                 intent.putExtra("seats_remaining", seatsRemainingInfo[position])
                 intent.putExtra("seats_selected", seatsSelectedInfo[position])
-                intent.putExtra("position", position)
+                this@MainActivity.position = position
                 startActivity(intent)
             }
         })
 
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        val bundle : Bundle ?= intent.extras
+        //bundle?.getInt("seats")
+        //Log.i("lucho", "seats: $seats")
     }
 
     private fun rand(start: Int, end: Int): Int {
