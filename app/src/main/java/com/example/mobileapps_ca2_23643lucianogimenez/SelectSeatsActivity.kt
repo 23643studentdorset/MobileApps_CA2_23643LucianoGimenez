@@ -83,7 +83,7 @@ class SelectSeatsActivity: AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("seats", seats.toString())
+        intent.putExtra("seats", seats)
         startActivity(intent)
         //Log.i("lucho", "seatsSecond: $seats")
 

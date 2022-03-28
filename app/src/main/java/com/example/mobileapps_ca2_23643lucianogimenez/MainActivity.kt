@@ -102,10 +102,10 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         val bundle : Bundle ?= intent.extras
-        var seats = bundle?.getString("seats")
+        var seats = bundle?.getInt("seats")
 
         //Log.i("lucho", "positionMain: $position")
-        Log.i("lucho", seats.toString())
+        Log.i("lucho", "$seats")
     }
 
     private fun rand(start: Int, end: Int): Int {
