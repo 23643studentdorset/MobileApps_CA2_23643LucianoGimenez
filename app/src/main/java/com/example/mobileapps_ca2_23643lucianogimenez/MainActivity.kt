@@ -1,9 +1,17 @@
 package com.example.mobileapps_ca2_23643lucianogimenez
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.lang.reflect.Constructor
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,11 +66,29 @@ class MainActivity : AppCompatActivity() {
 
     private fun getData() {
         for(i in nameInfo.indices){
-            val movie = Movie (nameInfo[i], imageInfo[i], certificationInfo[i].toString(), descriptionInfo[i], starringInfo[i],
-                runningTimeMinsInfo[i] ,seatsRemainingInfo[i], seatsSelectedInfo[i])
-                newArraylist.add(movie)
+            val movie = Movie (
+                nameInfo[i], imageInfo[i], certificationInfo[i].toString(), descriptionInfo[i],
+                starringInfo[i], runningTimeMinsInfo[i] ,seatsRemainingInfo[i], seatsSelectedInfo[i])
+            newArraylist.add(movie)
         }
-        newRecyclerView.adapter = Adapter(newArraylist)
+        var adapter = Adapter(newArraylist)
+        newRecyclerView.adapter = adapter
+
+        adapter.setOnItemClickListener(object : Adapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+                val intent = Intent(this@MainActivity, SelectSeatsActivity::class.java)
+                intent.putExtra("name", nameInfo[position])
+                intent.putExtra("image", imageInfo[position])
+                intent.putExtra("certification", certificationInfo[position])
+                intent.putExtra("description", descriptionInfo[position])
+                intent.putExtra("starring", starringInfo[position])
+                intent.putExtra("running_time_mins", runningTimeMinsInfo[position])
+                intent.putExtra("seats_remaining", seatsRemainingInfo[position])
+                intent.putExtra("seats_selected", seatsSelectedInfo[position])
+                startActivity(intent)
+            }
+        })
+
     }
 
     private fun rand(start: Int, end: Int): Int {

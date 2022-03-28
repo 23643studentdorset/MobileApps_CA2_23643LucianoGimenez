@@ -9,11 +9,19 @@ import com.google.android.material.imageview.ShapeableImageView
 
 class Adapter (private val movieList : ArrayList<Movie>) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
 
+    private lateinit var mListener : onItemClickListener
 
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType : Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
-        return MyViewHolder(itemView)
+        return MyViewHolder(itemView, mListener)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener){
+        mListener = listener
     }
 
     override fun onBindViewHolder(holder : MyViewHolder, position: Int) {
@@ -32,13 +40,19 @@ class Adapter (private val movieList : ArrayList<Movie>) : RecyclerView.Adapter<
 
     }
 
-    class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
+    class MyViewHolder(itemView : View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
         val name : TextView = itemView.findViewById(R.id.name)
         val image : ShapeableImageView = itemView.findViewById(R.id.image)
         val certification : ShapeableImageView = itemView.findViewById(R.id.certification)
         val starring : TextView = itemView.findViewById(R.id.starring)
         val runningTimeMins : TextView = itemView.findViewById(R.id.running_time_mins)
         val seatsRemaining : TextView = itemView.findViewById(R.id.seats_remaining)
+
+        init {
+            itemView.setOnClickListener {
+                listener.onItemClick(adapterPosition)
+            }
+        }
     }
 
 }
