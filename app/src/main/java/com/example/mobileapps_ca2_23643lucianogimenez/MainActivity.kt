@@ -22,23 +22,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        nameInfo = arrayOf("The Batman", "Sonic 2", "The Secrets of Dumbledore", "Maze", "Uncharted")
-        imageInfo = arrayOf(R.drawable.batman, R.drawable.sonic2, R.drawable.dumbledor, R.drawable.maze, R.drawable.uncharted)
-        certificationInfo = arrayOf(R.drawable.a15, R.drawable.pg, R.drawable.a12, R.drawable.a15, R.drawable.a12)
+        nameInfo = arrayOf(
+            getString(R.string.name1), getString(R.string.name2), getString(R.string.name3),
+            getString(R.string.name4), getString(R.string.name5))
+
+        imageInfo = arrayOf(
+            R.drawable.batman, R.drawable.sonic2, R.drawable.dumbledor,
+            R.drawable.maze, R.drawable.uncharted)
+
+        certificationInfo = arrayOf(
+            R.drawable.a15, R.drawable.pg, R.drawable.a12,
+            R.drawable.a15, R.drawable.a12)
+
         descriptionInfo = arrayOf(
-            "From Warner Bros. Pictures comes \"The Batman,\" with director Matt Reeves (the \"Planet of the Apes\" films) at the helm and with Robert Pattinson (\"Tenet,\" \"The Lighthouse,\" \"Good Time\") starring as Gotham City's vigilante detective, Batman.",
-            "After settling in Green Hills, Sonic is eager to prove he has what it takes to be a true hero. His test comes when Dr. Robotnik returns, this time with a new partner, Knuckles, in search for an emerald that has the power to destroy civilizations.",
-            "Unable to stop the powerful Dark wizard Gellert Grindelwald alone, Professor Albus Dumbledore entrusts Magizoologist Newt Scamander to lead an intrepid team of wizards, witches and one brave Muggle baker on a dangerous mission.",
-            "Inspired by the true events of the infamous 1983 prison breakout of 38 IRA prisoners from HMP, which was to become the biggest prison escape in Europe since World War II.",
-            "Street-smart Nathan Drake (Tom Holland) is recruited by seasoned treasure hunter Victor \"Sully\" Sullivan (Mark Wahlberg) to recover a fortune amassed by Ferdinand Magellan and lost 500 years ago by the House of Moncada."
-        )
+            getString(R.string.description1),getString(R.string.description2),getString(R.string.description3),
+            getString(R.string.description4), getString(R.string.description5))
+
         starringInfo = arrayOf(
-            "Robert Pattinson, Zoe Kravitz, Paul Dano, Colin Farrell",
-            "James Marsden, Ben Schwartz",
-            "Eddie Redmayne, Jude Law, Ezra Miller, Alison Sudol, Dan Fogler, Mads Mikkelsen",
-            "Tom Vaughan-Lawlor, Barry Ward, Martin McCann, Eileen Walsh",
-            "Tom Holland, Mark Wahlberg, Antonio Banderas",
-        )
+            getString(R.string.starring1), getString(R.string.starring2), getString(R.string.starring3),
+            getString(R.string.starring4), getString(R.string.starring5))
+
         runningTimeMinsInfo = arrayOf(175, 122, 144, 92, 116)
         seatsRemainingInfo = arrayOf(rand(0,15), rand(0,15), rand(0,15), rand(0,15), rand(0,15),)
         seatsSelectedInfo = arrayOf(0, 0, 0, 0, 0)
@@ -53,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getData() {
         for(i in nameInfo.indices){
-            val movie = Movie (nameInfo[i], imageInfo[i], certificationInfo[i], descriptionInfo[i], starringInfo[i],
+            val movie = Movie (nameInfo[i], imageInfo[i], certificationInfo[i].toString(), descriptionInfo[i], starringInfo[i],
                 runningTimeMinsInfo[i] ,seatsRemainingInfo[i], seatsSelectedInfo[i])
                 newArraylist.add(movie)
         }

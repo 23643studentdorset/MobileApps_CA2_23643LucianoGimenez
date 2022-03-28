@@ -1,17 +1,24 @@
 <resources>
     <string name="app_name">MobileApps_CA2_23643LucianoGimenez</string>
-    <string name="name"></string>
-    <string name="image"></string>
-    <string name="certification"></string>
-    <string name="description"></string>
+    <string name="name1">The Batman</string>
+    <string name="name2">Sonic 2</string>
+    <string name="name3">The Secrets of Dumbledore</string>
+    <string name="name4">Maze</string>
+    <string name="name5">Uncharted</string>
+    <string name="description1">From Warner Bros. Pictures comes The Batman, with director Matt Reeves (the Planet of the Apes films) at the helm and with Robert Pattinson ("Tenet", "The Lighthouse", "Good Time") starring as Gotham City\'s vigilante detective, Batman.</string>
+    <string name="description2">After settling in Green Hills, Sonic is eager to prove he has what it takes to be a true hero. His test comes when Dr. Robotnik returns, this time with a new partner, Knuckles, in search for an emerald that has the power to destroy civilizations.</string>
+    <string name="description3">Unable to stop the powerful Dark wizard Gellert Grindelwald alone, Professor Albus Dumbledore entrusts Magizoologist Newt Scamander to lead an intrepid team of wizards, witches and one brave Muggle baker on a dangerous mission.</string>
+    <string name="description4">Inspired by the true events of the infamous 1983 prison breakout of 38 IRA prisoners from HMP, which was to become the biggest prison escape in Europe since World War II.</string>
+    <string name="description5">Street-smart Nathan Drake (Tom Holland) is recruited by seasoned treasure hunter Victor "Sully" Sullivan (Mark Wahlberg) to recover a fortune amassed by Ferdinand Magellan and lost 500 years ago by the House of Moncada.</string>
     <string name="starring">Starring:</string>
-    <string name="starring_value"></string>
+    <string name="starring1">Robert Pattinson, Zoe Kravitz, Paul Dano, Colin Farrell</string>
+    <string name="starring2">James Marsden, Ben Schwartz</string>
+    <string name="starring3">Eddie Redmayne, Jude Law, Ezra Miller, Alison Sudol, Dan Fogler, Mads Mikkelsen</string>
+    <string name="starring4">Tom Vaughan-Lawlor, Barry Ward, Martin McCann, Eileen Walsh</string>
+    <string name="starring5">Tom Holland, Mark Wahlberg, Antonio Banderas</string>
     <string name="running_time_mins">Running time:</string>
-    <string name="running_time_mins_value"></string>
     <string name="seats_remaining">Seats remaining</string>
-    <string name="seats_remaining_value"></string>
     <string name="seats_selected">Seats selected</string>
-    <string name="seats_selected_value"></string>
 
 
 

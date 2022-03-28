@@ -20,7 +20,7 @@ class Adapter (private val movieList : ArrayList<Movie>) : RecyclerView.Adapter<
         val currentItem = movieList[position]
         holder.image.setImageResource(currentItem.image)
         holder.name.text = currentItem.name
-        holder.certification.setImageResource(currentItem.certification)
+        holder.certification.setImageResource(currentItem.certification.toInt())
         holder.starring.text = currentItem.starring
         holder.runningTimeMins.text = currentItem.running_time_mins.toString()
         holder.seatsRemaining.text = currentItem.seats_remaining.toString()
