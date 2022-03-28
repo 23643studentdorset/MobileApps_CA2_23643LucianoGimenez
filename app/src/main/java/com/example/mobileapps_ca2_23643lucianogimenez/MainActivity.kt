@@ -26,8 +26,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var runningTimeMinsInfo : Array<Int>
     lateinit var seatsRemainingInfo : Array<Int>
     lateinit var seatsSelectedInfo : Array<Int>
-    var position by Delegates.notNull<Int>()
-    //var seats by Delegates.notNull<Int>()
+    var position = 0
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -98,11 +99,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onRestart() {
-        super.onRestart()
+    override fun onResume() {
+        super.onResume()
         val bundle : Bundle ?= intent.extras
-        //bundle?.getInt("seats")
-        //Log.i("lucho", "seats: $seats")
+        var seats = bundle?.getString("seats")
+
+        //Log.i("lucho", "positionMain: $position")
+        Log.i("lucho", seats.toString())
     }
 
     private fun rand(start: Int, end: Int): Int {

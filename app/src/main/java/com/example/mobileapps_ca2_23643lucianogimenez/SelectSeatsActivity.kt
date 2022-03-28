@@ -11,6 +11,8 @@ import kotlin.properties.Delegates
 
 class SelectSeatsActivity: AppCompatActivity() {
 
+    var seats = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_seats)
@@ -48,7 +50,8 @@ class SelectSeatsActivity: AppCompatActivity() {
             if (seatsSelectedId < seatsRemainingId){
                 seatsSelectedId += 1
                 seatsSelected.text = seatsSelectedId.toString()
-                //seats = seatsSelectedId
+                seats = seatsSelectedId
+                seatsRemaining.text = (seatsRemainingId - seatsSelectedId).toString()
                 //Log.i("lucho", "seats: $seats")
                 findViewById<ImageView>(R.id.minus).isEnabled = true
                 findViewById<ImageView>(R.id.minus).setColorFilter(resources.getColor(R.color.grey))
@@ -61,7 +64,8 @@ class SelectSeatsActivity: AppCompatActivity() {
         findViewById<ImageView>(R.id.minus).setOnClickListener{
             if (seatsSelectedId > 0){
                 seatsSelectedId -= 1
-                //seats = seatsSelectedId
+                seats = seatsSelectedId
+                seatsRemaining.text = (seatsRemainingId + seatsSelectedId).toString()
                 //Log.i("lucho", "seats: $seats")
                 seatsSelected.text = seatsSelectedId.toString()
                 findViewById<ImageView>(R.id.plus).isEnabled = true
@@ -75,12 +79,14 @@ class SelectSeatsActivity: AppCompatActivity() {
         }
 
     }
-    //override fun onDestroy() {
-      //  super.onDestroy()
-      //  Log.i("lucho", "seats: $seats")
-      //  val intent = Intent(this, MainActivity::class.java)
-      //  intent.putExtra("seatsSelectedId", seats)
-      //  Log.i("lucho", "onDestroy called")
-      //  finish()
-    //}
+
+    override fun onPause() {
+        super.onPause()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("seats", seats.toString())
+        startActivity(intent)
+        //Log.i("lucho", "seatsSecond: $seats")
+
+        Log.i("lucho", "onPause called")
+    }
 }
