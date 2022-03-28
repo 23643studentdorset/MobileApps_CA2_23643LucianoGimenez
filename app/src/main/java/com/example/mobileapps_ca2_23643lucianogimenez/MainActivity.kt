@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,8 +25,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var descriptionInfo : Array<String>
     lateinit var starringInfo : Array<String>
     lateinit var runningTimeMinsInfo : Array<Int>
-    lateinit var seatsRemainingInfo : Array<Int>
-    lateinit var seatsSelectedInfo : Array<Int>
+
+    var seatsRemainingInfo = arrayOf(rand(0,15), rand(0,15), rand(0,15), rand(0,15), rand(0,15))
+    var seatsSelectedInfo = arrayOf(0, 0, 0, 0, 0)
+    var selectedArray = arrayOf("Seats remaining", "Seats remaining", "Seats remaining", "Seats remaining", "Seats remaining")
     var position = 0
 
 
@@ -35,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        seatsSelectedInfo = arrayOf(0, 0, 0, 0, 0)
+
 
         nameInfo = arrayOf(
             getString(R.string.name1), getString(R.string.name2), getString(R.string.name3),
@@ -58,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             getString(R.string.starring4), getString(R.string.starring5))
 
         runningTimeMinsInfo = arrayOf(175, 122, 144, 92, 116)
-        seatsRemainingInfo = arrayOf(rand(0,15), rand(0,15), rand(0,15), rand(0,15), rand(0,15),)
+
 
 
         newRecyclerView = findViewById(R.id.recycler_view)
@@ -75,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         for(i in nameInfo.indices){
             val movie = Movie (
                 nameInfo[i], imageInfo[i], certificationInfo[i].toString(), descriptionInfo[i],
-                starringInfo[i], runningTimeMinsInfo[i] ,seatsRemainingInfo[i], seatsSelectedInfo[i])
+                starringInfo[i], runningTimeMinsInfo[i] ,seatsRemainingInfo[i], seatsSelectedInfo[i], selectedArray[i])
             newArraylist.add(movie)
         }
         var adapter = Adapter(newArraylist)
@@ -99,13 +102,32 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onPause() {
+        super.onPause()
+        finish()
+    }
     override fun onResume() {
         super.onResume()
         val bundle : Bundle ?= intent.extras
         var seats = bundle?.getInt("seats")
+        var seatsRemaining = bundle?.getInt("seats_remaining2")
+        var selected = "Selected seats"
 
+        if (seats != null && seatsRemaining != null){
+            seatsSelectedInfo[position] = seats
+            seatsRemainingInfo[position] = seatsRemaining
+            selectedArray[position] = selected
+            Log.i("lucho", seatsSelectedInfo[position].toString())
+            Log.i("lucho", seatsRemainingInfo[position].toString())
+            //seatsRemainingInfo[position] -= seatsSelectedInfo[position]
+            //findViewById<TextView>(R.id.seats_remaining).text = seatsRemainingInfo[position].toString()
+
+            getData()
+
+
+        }
         //Log.i("lucho", "positionMain: $position")
-        Log.i("lucho", "$seats")
+        //Log.i("lucho", "$seats")
     }
 
     private fun rand(start: Int, end: Int): Int {

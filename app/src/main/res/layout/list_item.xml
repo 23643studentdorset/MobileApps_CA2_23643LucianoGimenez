@@ -83,7 +83,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/seats_remaining"
+            android:id="@+id/seats_remaining_text"
             android:textColor="#dbdbdb"
             android:textSize="20sp"/>
     </LinearLayout>

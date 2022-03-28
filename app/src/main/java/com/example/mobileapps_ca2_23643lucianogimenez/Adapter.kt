@@ -32,7 +32,6 @@ class Adapter (private val movieList : ArrayList<Movie>) : RecyclerView.Adapter<
         holder.starring.text = currentItem.starring
         holder.runningTimeMins.text = currentItem.running_time_mins.toString()
         holder.seatsRemaining.text = currentItem.seats_remaining.toString()
-
     }
 
     override fun getItemCount() : Int {
@@ -47,6 +46,7 @@ class Adapter (private val movieList : ArrayList<Movie>) : RecyclerView.Adapter<
         val starring : TextView = itemView.findViewById(R.id.starring)
         val runningTimeMins : TextView = itemView.findViewById(R.id.running_time_mins)
         val seatsRemaining : TextView = itemView.findViewById(R.id.seats_remaining)
+        val seatsRemaining2 : TextView = itemView.findViewById(R.id.seats_remaining_text)
 
         init {
             itemView.setOnClickListener {

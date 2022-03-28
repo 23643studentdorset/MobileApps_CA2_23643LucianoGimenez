@@ -12,6 +12,7 @@ import kotlin.properties.Delegates
 class SelectSeatsActivity: AppCompatActivity() {
 
     var seats = 0
+    var seatsRemainingId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +34,7 @@ class SelectSeatsActivity: AppCompatActivity() {
         val descriptionId = bundle.getString("description")
         val starringId = bundle.getString("starring")
         val runningTimeMinsId = bundle.getInt("running_time_mins")
-        var seatsRemainingId = bundle.getInt("seats_remaining")
+        seatsRemainingId = bundle.getInt("seats_remaining")
         var seatsSelectedId = bundle.getInt("seats_selected")
 
         name.text = nameId
@@ -84,9 +85,10 @@ class SelectSeatsActivity: AppCompatActivity() {
         super.onPause()
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("seats", seats)
+        intent.putExtra("seats_remaining2", seatsRemainingId )
         startActivity(intent)
         //Log.i("lucho", "seatsSecond: $seats")
 
-        Log.i("lucho", "onPause called")
+        //Log.i("lucho", "onPause called")
     }
 }
