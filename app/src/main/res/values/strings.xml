@@ -17,8 +17,20 @@
     <string name="starring4">Tom Vaughan-Lawlor, Barry Ward, Martin McCann, Eileen Walsh</string>
     <string name="starring5">Tom Holland, Mark Wahlberg, Antonio Banderas</string>
     <string name="running_time_mins">Running time:</string>
+    <string name="running_time_hours1"></string>
+    <string name="running_time_hours2"></string>
+    <string name="running_time_hours3"></string>
+    <string name="running_time_hours4"></string>
+    <string name="running_time_hours5"></string>
+    <string name="hrs">hrs</string>
+    <string name="running_time_mins1"></string>
+    <string name="running_time_mins2"></string>
+    <string name="running_time_mins3"></string>
+    <string name="running_time_mins4"></string>
+    <string name="running_time_mins5"></string>
+    <string name="mins">mins</string>
     <string name="seats_remaining">Seats remaining</string>
-    <string name="seats_selected">Seats selected</string>
+    <string name="select_seats">Select seats</string>
 
 
 

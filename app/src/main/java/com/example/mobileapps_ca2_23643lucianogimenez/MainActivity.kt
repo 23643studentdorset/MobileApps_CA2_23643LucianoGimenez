@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             getString(R.string.starring4), getString(R.string.starring5))
 
         runningTimeMinsInfo = arrayOf(175, 122, 144, 92, 116)
-        seatsRemainingInfo = arrayOf(rand(0,15), rand(0,15), rand(0,15), rand(0,15), rand(0,15),)
+        seatsRemainingInfo = arrayOf(rand(0,16), rand(0,16), rand(0,16), rand(0,16), rand(0,16),)
         seatsSelectedInfo = arrayOf(0, 0, 0, 0, 0)
 
         newRecyclerView = findViewById(R.id.recycler_view)
@@ -52,6 +52,8 @@ class MainActivity : AppCompatActivity() {
 
         newArraylist = arrayListOf<Movie>()
         getData()
+
+
     }
 
     private fun getData() {
@@ -66,5 +68,11 @@ class MainActivity : AppCompatActivity() {
     private fun rand(start: Int, end: Int): Int {
         require(start <= end) { "Illegal Argument" }
         return (Math.random() * (end - start + 1)).toInt() + start
+    }
+    private fun runningTimeHours(runningTimeHours: Int): Int {
+        return runningTimeHours / 60
+    }
+    private fun runningTimeMin(runningTimeMins: Int): Int{
+        return runningTimeMins % 60
     }
 }
