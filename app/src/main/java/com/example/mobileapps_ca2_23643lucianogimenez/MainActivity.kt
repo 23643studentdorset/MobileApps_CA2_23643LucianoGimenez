@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        seatsSelectedInfo = arrayOf(0, 0, 0, 0, 0)
+
         nameInfo = arrayOf(
             getString(R.string.name1), getString(R.string.name2), getString(R.string.name3),
             getString(R.string.name4), getString(R.string.name5))
@@ -52,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         runningTimeMinsInfo = arrayOf(175, 122, 144, 92, 116)
         seatsRemainingInfo = arrayOf(rand(0,16), rand(0,16), rand(0,16), rand(0,16), rand(0,16),)
-        seatsSelectedInfo = arrayOf(0, 0, 0, 0, 0)
+
 
         newRecyclerView = findViewById(R.id.recycler_view)
         newRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -85,6 +87,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("running_time_mins", runningTimeMinsInfo[position])
                 intent.putExtra("seats_remaining", seatsRemainingInfo[position])
                 intent.putExtra("seats_selected", seatsSelectedInfo[position])
+                intent.putExtra("position", position)
                 startActivity(intent)
             }
         })
